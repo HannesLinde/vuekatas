@@ -12,13 +12,25 @@
           All levels
         </h2>
         <Loadingspinner v-if="isLoading" />
-        <p
-          class="text-center"
-          v-for="(result, index) in trivia.results"
-          :key="index"
-        >
-          {{ result.question }}
-        </p>
+        <div v-if="!isLoading">
+          <div
+            class="text-center"
+            v-for="(result, index) in trivia.results"
+            :key="index"
+          >
+            <div>
+              <p
+                class="font-semibold bg-gray-300 my-2 py-2 cursor-pointer"
+                @click="showAnswer"
+              >
+                {{ result.question }}
+              </p>
+            </div>
+            <p v-if="answer">
+              {{ result.correct_answer }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -27,12 +39,14 @@
 <script>
 import Vue from "vue";
 import axios from "axios";
+import Loadingspinner from "@/components/Loadingspinner.vue";
 
 export default Vue.extend({
   data() {
     return {
       trivia: [],
       isLoading: false,
+      answer: false,
     };
   },
   async mounted() {
@@ -50,6 +64,14 @@ export default Vue.extend({
         this.loading = false;
       }
     }
+  },
+  methods: {
+    showAnswer() {
+      this.answer = !this.answer;
+    },
+  },
+  components: {
+    Loadingspinner,
   },
 });
 </script>
