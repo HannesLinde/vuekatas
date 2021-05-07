@@ -1,6 +1,6 @@
 <template>
   <div class="px-4 py-6 max-w-screen-sm mx-auto">
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" class="flex flex-col place-items-center">
       <input
         type="text"
         id="wikiSearch"
@@ -11,10 +11,15 @@
         placeholder="Type in your wiki search"
         v-model="wikisearch"
       />
-      <button type="submit">submit</button>
+      <button
+        type="submit"
+        class="my-2 px-2 border-solid border-2 border-black bg-yellow-300"
+      >
+        submit
+      </button>
     </form>
     <Loadingspinner v-if="loading" />
-    <div v-if="!loading">{{ wikiPage }}</div>
+    <div v-if="!loading">{{ wikiPage.extract }}</div>
   </div>
 </template>
 
