@@ -1,10 +1,10 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
-import Register from "../views/Register.vue";
-import Login from "../views/Login.vue";
-import Notes from "../views/Notes.vue";
-import Note from "../views/Note.vue";
+import Kata4 from "../views/Kata4.vue";
+import Kata1 from "../views/Kata1.vue";
+import Kata2 from "../views/Kata2.vue";
+import Kata3 from "../views/Kata3.vue";
 
 Vue.use(VueRouter);
 
@@ -15,24 +15,24 @@ const routes: Array<RouteConfig> = [
     component: Dashboard,
   },
   {
-    path: "/auth/register",
-    name: "Register",
-    component: Register,
+    path: "/kata4",
+    name: "Kata 4",
+    component: Kata4,
   },
   {
-    path: "/auth/login",
-    name: "Login",
-    component: Login,
+    path: "/kata1",
+    name: "Kata 1",
+    component: Kata1,
   },
   {
-    path: "/notes",
-    name: "Notes",
-    component: Notes,
+    path: "/Kata2",
+    name: "Kata 2",
+    component: Kata2,
   },
   {
-    path: "/notes/:id",
-    name: "Note",
-    component: Note,
+    path: "/kata3",
+    name: "Kata 3",
+    component: Kata3,
   },
 ];
 
